@@ -46,7 +46,7 @@
         msg: "{{ 'test_var' | regex_replace('$', '_suffix') }}"
     - name: map filter
       debug:
-        msg: "{{ test | map('regex_replace', '$', '_suffix') }}"
+        msg: "{{ test | map('regex_replace', '$', '_suffix') | list }}"
       vars:
         - test:
             - test_var1
