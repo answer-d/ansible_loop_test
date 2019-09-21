@@ -31,3 +31,13 @@
       # が
       # ok: [localhost] => (item=server1)
       # になるよ！
+
+- name: iroiro tamesuyo!
+  hosts: all
+  tasks:
+    - name: zip filter
+      debug:
+        msg: "{{ list1 | zip(list2) | list }}"
+      vars:
+        - list1: [0, 1 ,2]
+        - list2: [a, b, c]
