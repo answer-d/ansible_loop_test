@@ -41,3 +41,14 @@
       vars:
         - list1: [0, 1 ,2]
         - list2: [a, b, c]
+    - name: map
+      debug:
+        msg: "{{ 'test_var' | regex_replace('$', '_suffix') }}"
+    - name: map filter
+      debug:
+        msg: "{{ test | map('regex_replace', '$', '_suffix') }}"
+      vars:
+        - test:
+            - test_var1
+            - test_var2
+            - test_var3
