@@ -5,3 +5,10 @@
     - debug:
         msg: "{{ item }}"
       loop: [0, 2, 4, 6, 8, 10]
+
+- name: product filter
+  hosts: all
+  tasks:
+    - debug:
+        var: item
+      loop: "{{ ['alice', 'bob'] | product(['client', 'employeedb', 'providerdb']) | list }}"

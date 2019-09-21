@@ -4,3 +4,5 @@ all:
     local:
       hosts:
         localhost
+      vars:
+        ansible_connection: local
