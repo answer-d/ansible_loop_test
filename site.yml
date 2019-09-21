@@ -12,24 +12,3 @@
     - debug:
         var: item
       loop: "{{ ['alice', 'bob'] | product(['client', 'employeedb', 'providerdb']) | list }}"
-
-- name: query module
-  hosts: all
-  tasks:
-    - debug:
-        var: "{{ query('test', 'aaa:!fuga') }}"
-      vars:
-        - test:
-            aaa:
-              hoge:
-                - a1
-                - a2
-              fuga:
-                - a3
-                - a4
-              hage:
-                - a5
-                - a6
-            bbb:
-              - b1
-              - b2
