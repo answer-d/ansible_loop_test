@@ -3,5 +3,5 @@
   hosts: all
   tasks:
     - debug:
-        msg: {{ item }}
+        msg: "{{ item }}"
       loop: [0, 2, 4, 6, 8, 10]
