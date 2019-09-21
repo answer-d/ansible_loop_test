@@ -17,7 +17,7 @@
   hosts: all
   tasks:
     - debug:
-        var: item
+        msg: "{{ item.name }}"
       loop:
         - name: server1
           disks: 3gb
