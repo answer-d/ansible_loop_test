@@ -27,3 +27,7 @@
             nic02: 10Gb
       loop_control:
         label: "{{ item.name }}"
+      # ok: [localhost] => (item={u'disks': u'3gb', u'ram': u'15Gb', u'name': u'server1', u'network': {u'nic02': u'10Gb', u'nic01': u'100Gb'}})
+      # が
+      # ok: [localhost] => (item=server1)
+      # になるよ！
