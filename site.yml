@@ -52,3 +52,29 @@
             - test_var1
             - test_var2
             - test_var3
+
+- name: block rescue
+  debugger: on_failed
+  hosts: all
+  tasks:
+    - name: Handle the error
+      block:
+        - debug:
+            msg: 'I execute normally'
+        - name: i force a failure
+          command: /bin/false
+        - debug:
+            msg: 'I never execute, due to the above task failing, :-('
+      rescue:
+        - debug:
+            var: ansible_failed_task
+    - name: next task (same play)!
+      debug:
+        msg: 'does next task be executed ?'
+
+- name: block rescue 2
+  hosts: all
+  tasks:
+    - name: next task (another play)
+      debug:
+        msg: 'does next task be executed ?'
