@@ -54,7 +54,7 @@
             - test_var3
 
 - name: block rescue
-  debugger: on_failed
+  debugger: never
   hosts: all
   tasks:
     - name: Handle the error
@@ -78,3 +78,11 @@
     - name: next task (another play)
       debug:
         msg: 'does next task be executed ?'
+
+- name: vault test
+  hosts: all
+  vars_files:
+    - private.yml
+  tasks:
+    - debug:
+        msg: "password = {{ password }}"
