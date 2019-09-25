@@ -4,10 +4,17 @@
   tasks:
     - name: run the new module
       my_test_module:
-#        name: hello
-        name: fail me
+        name: hello
+#        name: fail me
         new: true
       register: testout
     - name: dump test output
       debug:
         var: testout
+
+- name: filter test
+  hosts: all
+  tasks:
+    - name: run the new filter
+      debug:
+        msg: "{{ 'aaa' | my_filter_test }}"
