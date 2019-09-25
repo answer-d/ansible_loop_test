@@ -1,0 +1,13 @@
+---
+- name: module test
+  hosts: all
+  tasks:
+    - name: run the new module
+      my_test_module:
+#        name: hello
+        name: fail me
+        new: true
+      register: testout
+    - name: dump test output
+      debug:
+        var: testout
